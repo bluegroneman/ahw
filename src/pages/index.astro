@@ -1,49 +1,108 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
----
+import Layout from '../layouts/Layout.astro';
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+import '../assets/global.css';
+import SecondaryBtn from '../components/global/SecondaryBtn.svelte';
+import Card from '../components/Card.svelte';
+import Hero from '../components/Hero.svelte'
+import VideoCTA from "../components/VideoCTA.svelte";
+import { Image } from 'astro:assets';
+
+import HeartHands from "../assets/images/heart-hands-icon.svg";
+import C4CCollage from "../assets/images/2024-C4C-collage.jpeg";
+import HeartHouse from "../assets/images/house-heart-icon.svg";
+
+const matches = import.meta.glob('./stories/*.mdx', { eager: true });
+const stories = Object.values(matches);
+---
+<Layout title="Almost Home Wyoming">
+	<main>
+	<div class="wrapper">
+      <Hero
+        headline="Almost Home Wyoming"
+        body="Homeless to Hopeful with just a little help"
+        imageSrc="https://pub-14b6e6c1e28d49cbb9491101304b9098.r2.dev/lavender-cover.jpg"
+      />
+      <div class="">
+        <div class="mx-auto max-w-4xl py-16 px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:px-8 lg:pt-24">
+          <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 gap-x-6 gap-y-12 lg:mt-16 lg:gap-x-8 lg:gap-y-16">
+            <div class="bg-gradient-to-r from-purple-800 to-t-teal p-6 rounded">
+              <div>
+                <span class="flex h-24 w-24 items-center justify-center rounded-md">
+                  <Image
+                    src={HeartHands}
+                    alt="Hand holding a house outline"
+                  />
+                </span>
+              </div>
+              <div class="mt-6">
+                <h2 class="text-3xl font-medium text-white">About us</h2>
+                <p class="mt-2 text-base text-white">Learn more about our mission and story</p>
+                <SecondaryBtn link="/about/">Read On</SecondaryBtn>
+              </div>
+            </div>
+            <div class="bg-gradient-to-r from-t-teal to-indigo-400 p-6 rounded">
+              <div>
+                <span class="flex h-24 w-24 items-center justify-center rounded-md">
+                  <!-- Heroicon name: outline/heart -->
+                  <Image src={HeartHands} alt="Two hands making a heart outline"/>
+                </span>
+              </div>
+              <div class="mt-6">
+                <h2 class="text-2xl font-medium text-white">Ways to Give</h2>
+                <p class="mt-2 text-base text-white">Lend a helping hand</p>
+                <SecondaryBtn link="/donate/">Donate</SecondaryBtn>
+              </div>
+            </div>
+            <div class="bg-gradient-to-l from-purple-800 to-indigo-400 p-6 rounded">
+              <div>
+                <span class="flex h-24 w-24 items-center justify-center rounded-md">
+                  <!-- Heroicon name: outline/users -->
+                  <Image src={HeartHouse} alt="Outline of a hosue with a heart in the center"/>
+                </span>
+
+              </div>
+              <div class="mt-6">
+                <h2 class="text-2xl font-medium text-white">Reach out to us</h2>
+                <p class="mt-2 text-white text-base">Please reach out with any questions or concerns, we are here to help</p>
+                <SecondaryBtn link="/contact/">Contact Us</SecondaryBtn>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto">
+        <Hero headline="Our stories" body="Read about our organization"></Hero>
+        <div class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          {stories.map((story, index) => (
+            <Card story={story} key={index}></Card>
+          ))}
+        </div>
+      </div>
+
+      <VideoCTA />
+      <div class="bg-white py-24 sm:py-32" id="c4c">
+          <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
+              <div class="paragraph mx-auto w-full max-w-xl lg:mx-0">
+                <h1 class="prose text-4xl font-bold tracking-tight text-gray-900">Challenge for Charities 2024 Review</h1>
+                <p class="prose mt-6 text-lg leading-8 text-gray-600 mx-auto"><em class="decoration-purple-600 underline font-normal">Dear Friends of Almost Home Wyoming,</em></p>
+                <p>The <a href="https://www.landercommunityfoundation.org/challenge-for-charities-overview">Lander Community Foundation’s Challenge for Charities</a>
+                  match was a huge success for 2024. We would like to extend a wide thank you to the Wyoming Community Foundation for putting on the event.</p>
+                <p>On behalf of our community we would like to extend our appreciation to the Wyoming Community Foundation for their generous 2024 contributions.</p>
+                <p class="prose"><em class="decoration-purple-600 underline font-normal">With gratitude, your Friends of Almost Home Wyoming</em></p>
+              </div>
+              <div class="mx-auto grid w-full max-w-xl grid-cols-1 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
+                <Image
+                    class="max-h-full w-full object-contain object-left"
+                    src={C4CCollage}
+                    alt="Challenge for Charities collage from check hand off event"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,57 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import StoryLayout from '../../layouts/StoryLayout.astro';
+import { render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const stories = await getCollection('stories');
+	return stories.map((story) => ({
+		params: { slug: story.id },
+		props: story,
+	}));
+}
+type Props = CollectionEntry<'stories'>;
+
+const story = Astro.props;
+const { Content } = await render(story);
+---
+
+<StoryLayout {...story.data}>
+	<Content />
+</StoryLayout>
+
+---
+import Hero from "../../components/Hero.svelte";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+import { client } from '../../../tina/__generated__/client';
+
+
+export async function getStaticPaths() {
+  const postsResponse = await client.queries.postConnection()
+  const stories = postsResponse.data.postConnection.edges.map(post => {
+    return post
+  });
+
+  return stories.map(story => {
+    const Slug = story.node.id.split('/').pop();
+    const Title = story.node.title;
+    const Body = story.node.body; // TODO: Break this down into Markdown
+    const Image = story.node.imgSrc; // TODO: Break this down into Markdown
+    console.log(Body)
+    return {
+      params: { Slug },
+      props: { Slug, Title, Body, Image },
+    };
+  });
+}
+import Layout from '../../layouts/Layout.astro'
+
+const { Slug, Title, Body, Image } = Astro.props;
+---
+<Layout title={Title}>
+<Hero headline={Title} body="" image={Image}></Hero>
+
+  </div>
+</div>
+</Layout>
+

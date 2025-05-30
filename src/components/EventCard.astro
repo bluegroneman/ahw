@@ -1,0 +1,44 @@
+---
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+
+const { event } = Astro.props;
+const formatDate = (datetime) => {
+  return new Date(datetime).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})
+}
+---
+<div class="bg-white">
+  <div class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20">
+    <div class="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-40">
+      <div class="px-6 lg:px-0 lg:pt-4">
+        <div class="mx-auto max-w-2xl">
+          <div class="max-w-lg">
+            <img class="h-24" src="/images/almosthome-wyo-logo.jpeg" alt="Almost Home Wyoming">
+            <h1 class="my-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{event.title}</h1>
+<!--            <p class="mt-6 text-lg leading-8 text-gray-600">{event.description}</p>-->
+            <TinaMarkdown content={event.description} client:only="react"/>
+            <time
+                datetime={formatDate(event.startDate)}
+                class="py-6"
+            >
+              <span class="inline-flex items-center rounded-full bg-yellow-50 px-2 py-1 my-2 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
+                {formatDate(event.startDate)} - {formatDate(event.endDate)}
+              </span>
+              <br class="pt-6"/>
+              <span class="inline-flex items-center rounded-full bg-blue-50 mx-2 py-1 my-2 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
+                @ {event.startTime} - {event.endTime}
+              </span>
+            </time>
+            <div class="mt-10 flex items-center gap-x-6">
+              <a href={event.externalLink} class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">See More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
+        <div class="absolute inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 md:-mr-20 lg:-mr-36" aria-hidden="true"></div>
+        <img class="absolute inset-0 -z-10 h-2/3 w-1/2 my-auto ml-auto object-cover rounded-lg" src={event.imgSrc} alt={event.title} />
+      </div>
+    </div>
+    <div class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32"></div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "AlmostHomeWyoming",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,8 +10,22 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
+    "@astrojs/netlify": "^6.3.4",
+    "@astrojs/react": "^4.3.0",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.4.0",
-    "astro": "^5.8.0"
+    "@astrojs/svelte": "^7.1.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.8",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "astro": "^5.8.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "svelte": "^5.33.6",
+    "tailwindcss": "^4.1.8",
+    "typescript": "^5.8.3"
   }
 }
