@@ -6,15 +6,14 @@
     </div>
   </div>
   <div class="relative overflow-hidden pt-16">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="aspect-w-16 aspect-h-9">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 w-full">
         <iframe
           src="https://www.youtube.com/embed/ZtaQ7ufwL_U"
-          title="YouTube video player"
+          title="Almost Home Wyoming inspiring video"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          class="aspect-video w-full"
           allowfullscreen
         ></iframe>
-      </div>
     </div>
   </div>
 </div>

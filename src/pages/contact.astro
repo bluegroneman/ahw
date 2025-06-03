@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.svelte';
+import { getEntry } from 'astro:content';
+
+const ContactPage = await getEntry('pages', 'contact')
+
+---
+<Layout title="Contact Almost Home Wyoming">
+    <Hero
+        image={ContactPage.data.imgSrc}
+        headline={ContactPage.data.title}
+        body={ContactPage.data.subTitle}
+    ></Hero>
+    <div class="bg-white max-w-fit mx-auto shadow overflow-hidden sm:rounded-lg mt-8">
+      <div class="px-4 py-5 sm:px-6">
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+            {ContactPage.data.title}
+        </h3>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+          Phone, Email, etc..
+        </p>
+      </div>
+      <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+        <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+          <div class="sm:col-span-1">
+            <dt class="text-sm font-medium text-gray-500">Mailing Address</dt>
+            <dd class="mt-1 text-sm text-gray-900">
+              P.O. Box 44, Lander, WY,82520
+            </dd>
+          </div>
+          <div class="sm:col-span-1">
+            <dt class="text-sm font-medium text-gray-500">
+              Phone Number
+            </dt>
+            <dd class="mt-1 text-sm text-gray-900">
+            (307) 332-6127
+            </dd>
+          </div>
+          <div class="sm:col-span-1">
+            <dt class="text-sm font-medium text-gray-500">Email</dt>
+            <dd class="mt-1 text-sm text-gray-900">
+              almosthomewyoming@gmail.com
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+</Layout>

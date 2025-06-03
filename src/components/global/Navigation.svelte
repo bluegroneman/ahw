@@ -29,7 +29,7 @@
       <div class="flex items-center">
         <div class="flex-shrink-0">
             <img
-              src="https://pub-14b6e6c1e28d49cbb9491101304b9098.r2.dev/almost_home_white.png"
+              src="https://pub-14b6e6c1e28d49cbb9491101304b9098.r2.dev/AHW_logo-white-no-text.png"
               class="h-8 w-auto sm:h-10"
               alt="logo - heart with a house in the center"
             />

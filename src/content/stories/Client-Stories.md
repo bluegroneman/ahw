@@ -1,9 +1,9 @@
 ---
-title: Client Stories
-description: 'A collection of stories '
-pubDate: 'Jul 08 2022'
-imgSrc: '../assets/images/group-photo.png'
-subTitle: Our Success Stories
+title: 'Client Stories'
+description:  'A collection of stories'
+pubDate: '07-08-2022'
+imgSrc: 'https://pub-14b6e6c1e28d49cbb9491101304b9098.r2.dev/team-group-photo.png'
+subTitle:  'Our Success Stories'
 ---
 
 ## Exceeding Expectations

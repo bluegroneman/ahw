@@ -11,9 +11,9 @@ import { Image } from 'astro:assets';
 import HeartHands from "../assets/images/heart-hands-icon.svg";
 import C4CCollage from "../assets/images/2024-C4C-collage.jpeg";
 import HeartHouse from "../assets/images/house-heart-icon.svg";
+import { getCollection } from 'astro:content';
 
-const matches = import.meta.glob('./stories/*.mdx', { eager: true });
-const stories = Object.values(matches);
+const stories = await getCollection('stories');
 ---
 <Layout title="Almost Home Wyoming">
 	<main>
@@ -73,7 +73,7 @@ const stories = Object.values(matches);
       </div>
 
       <div class="relative max-w-7xl mx-auto">
-        <Hero headline="Our stories" body="Read about our organization"></Hero>
+        <Hero imageSrc="https://pub-14b6e6c1e28d49cbb9491101304b9098.r2.dev/first-interstate-bank-check.jpg" headline="Our stories" body="Read about our organization"></Hero>
         <div class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {stories.map((story, index) => (
             <Card story={story} key={index}></Card>
@@ -87,11 +87,15 @@ const stories = Object.values(matches);
             <div class="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
               <div class="paragraph mx-auto w-full max-w-xl lg:mx-0">
                 <h1 class="prose text-4xl font-bold tracking-tight text-gray-900">Challenge for Charities 2024 Review</h1>
-                <p class="prose mt-6 text-lg leading-8 text-gray-600 mx-auto"><em class="decoration-purple-600 underline font-normal">Dear Friends of Almost Home Wyoming,</em></p>
-                <p>The <a href="https://www.landercommunityfoundation.org/challenge-for-charities-overview">Lander Community Foundation’s Challenge for Charities</a>
-                  match was a huge success for 2024. We would like to extend a wide thank you to the Wyoming Community Foundation for putting on the event.</p>
-                <p>On behalf of our community we would like to extend our appreciation to the Wyoming Community Foundation for their generous 2024 contributions.</p>
-                <p class="prose"><em class="decoration-purple-600 underline font-normal">With gratitude, your Friends of Almost Home Wyoming</em></p>
+                <p class="prose mt-6 text-lg leading-8 text-gray-600 mx-auto"><em class="">Dear Friends of Almost Home Wyoming,</em></p>
+                <br/>
+                <p>The <a class="decoration-purple-600 underline font-normal" href="https://www.landercommunityfoundation.org/challenge-for-charities-overview">
+                   Lander Community Foundation’s Challenge for Charities
+                </a>match was a huge success for 2024. We would like to extend a wide thank you to the Wyoming Community Foundation for putting on the event.</p>
+                <br/>
+                <p class="prose">
+                  <em class="italic">With gratitude, from the Almost Home Wyoming team</em>
+                </p>
               </div>
               <div class="mx-auto grid w-full max-w-xl grid-cols-1 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
                 <Image

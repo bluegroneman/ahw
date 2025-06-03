@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@theme {
+  --color-t-black: #333333;
+  --color-t-orange: #feb358;
+  --color-t-blue: #3c78e0;
+  --color-t-teal: #50bec1;
+}
+
+.paragraph > a {
+  text-decoration-color: var(--color-purple-600);
+  text-decoration-line: underline;
+}

@@ -7,7 +7,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'stories'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, imgSrc } = Astro.props;
 ---
 
 <html lang="en">
@@ -42,7 +42,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				  </div>
 				  <div class="relative px-6 lg:px-8">
 					<div class="prose prose-lg prose-indigo mx-auto mt-6 text-gray-500">
-						<!--<TinaMarkdown content={Body} />-->
+						<slot/>
 					</div>
 				  </div>
 			</div>
