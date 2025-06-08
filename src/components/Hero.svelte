@@ -3,7 +3,7 @@
     export let body = "insert body";
     export let imageSrc = "";
 </script>
-<div class="relative px-6 lg:px-8">
+<div class="relative px-6 lg:px-8 mb-12">
   <div class="absolute inset-0 from-purple-600 to-blue-600 bg-blend-screen">
     {#if imageSrc !== ""}
       <img

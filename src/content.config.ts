@@ -16,7 +16,7 @@ const stories = defineCollection({
 });
 
 const pages = defineCollection({
-	loader: glob({ base: './src/content/pages', pattern: '**/*.{md,mdx}' }),
+	loader: glob({ base: './src/content/pages', pattern: '*.{md,mdx}' }),
 	schema: z.object({
 		title: z.string(),
 		subTitle: z.string(),

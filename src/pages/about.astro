@@ -4,7 +4,6 @@ import Layout from '../layouts/Layout.astro';
 import Quote from '../components/Quote.svelte';
 
 import { getEntry, getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
 
 const AboutPage = await getEntry('pages', "about");
 const quotes = [
@@ -29,7 +28,7 @@ const quotes = [
         headline={AboutPage.data.title}
         body={AboutPage.data.subTitle}
       />
-    <div class="relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-2">
+    <article class="relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-2">
       <div class="lg:inset-y-0 lg:left-0">
         <img
           class="relative aspect-auto w-full h-full"
@@ -49,7 +48,7 @@ const quotes = [
         </div>
       </div>
 
-    </div>
+    </article>
     <div class="grid-cols-1 grid max-w-4xl mx-auto">
     {quotes.map((item) => {
       return (
