@@ -8,13 +8,9 @@ const navigation = {
   ],
 };
 </script>
-
-<footer class="bg-white">
-  <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
-    <nav
-      class="-mx-5 -my-2 flex flex-wrap justify-center"
-      aria-label="Footer"
-    >
+<footer class="mt-16 sm:mt-32 flex">
+  <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
+    <nav class="pb-4 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6" aria-label="Footer">
       {#each navigation.main as item}
         <div class="px-5 py-2">
           <a
@@ -26,7 +22,7 @@ const navigation = {
         </div>
       {/each}
     </nav>
-    <p class="mt-8 text-center text-base text-gray-400">
+    <p class="text-gray-600 hover:text-gray-800">
       &copy; 2025 Almost Home Wyoming, Inc. All rights reserved. - built by <a href="https://blue.groneman.org" class="text-base text-gray-500 hover:text-gray-900">Blue</a>
     </p>
   </div>

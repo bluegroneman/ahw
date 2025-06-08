@@ -3,6 +3,7 @@ import Navigation from '../components/global/Navigation.svelte';
 import Footer from '../components/global/Footer.svelte';
 import Banner from '../components/Banner.svelte';
 import "../assets/global.css";
+import { GoogleAnalytics } from 'astro-google-analytics';
 
 export interface Props {
 	title: string;
@@ -19,24 +20,18 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+        <GoogleAnalytics id="G-P8Q7Z18VEB" />
 	</head>
 	<body>
-        <!-- Google tag (gtag.js) -->
-       <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8Q7Z18VEB"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-P8Q7Z18VEB');
-        </script>
         <Navigation />
-        <div class="relative pb-16 sm:pb-24">
+        <div class="relative pb-32 sm:pb-24">
             <main class="mx-auto">
                 <slot />
             </main>
         </div>
-        <Footer />
+        <div class="flex justify-around">
+          <Footer />
+        </div>
         <Banner />
 	</body>
 </html>
