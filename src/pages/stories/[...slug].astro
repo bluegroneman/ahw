@@ -19,7 +19,7 @@ const { Content } = await render(story);
 ---
 <Layout title={story.data.title}>
 	<Hero headline={story.data.title} image={story.data.imgSrc} body={story.data.subTitle}></Hero>
-	<main class="hidden lg:absolute lg:inset-y-0 lg:block lg:h-full lg:w-full lg:[overflow-anchor:none]">
+	<main class="hidden lg:inset-y-0 lg:block lg:h-full lg:w-full lg:[overflow-anchor:none]">
       <div class="relative mx-auto h-full max-w-prose text-lg" aria-hidden="true">
         <svg class="absolute top-12 left-full translate-x-32 transform" width="404" height="384" fill="none" viewBox="0 0 404 384">
           <defs>
@@ -38,10 +38,8 @@ const { Content } = await render(story);
           <rect width="404" height="384" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)" />
         </svg>
       </div>
-      <div class="relative px-6 lg:px-8">
-        <div class="prose max-w-prose prose-lg prose-indigo mx-auto mt-6 text-gray-500">
-          <Content></Content>
-        </div>
+      <div class="prose max-w-prose prose-lg prose-indigo mx-auto mt-6 text-gray-500">
+        <Content></Content>
       </div>
   </main>
 </Layout>

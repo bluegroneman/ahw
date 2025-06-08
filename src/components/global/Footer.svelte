@@ -8,7 +8,7 @@ const navigation = {
   ],
 };
 </script>
-<footer class="mt-16 sm:mt-32 flex">
+<footer class="mt-16 sm:mt-32">
   <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
     <nav class="pb-4 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6" aria-label="Footer">
       {#each navigation.main as item}
