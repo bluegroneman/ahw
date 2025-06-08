@@ -6,6 +6,7 @@ import SecondaryBtn from '../components/global/SecondaryBtn.svelte';
 import Card from '../components/Card.svelte';
 import Hero from '../components/Hero.svelte'
 import VideoCTA from "../components/VideoCTA.svelte";
+import BentoGrid from "../components/BentoGrid.astro";
 import { Image } from 'astro:assets';
 
 import HeartHands from "../assets/images/heart-hands-icon.svg";
@@ -82,30 +83,8 @@ const stories = await getCollection('stories');
       </div>
 
       <VideoCTA />
-      <div class="bg-white py-24 sm:py-32" id="c4c">
-          <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="grid grid-cols-1 items-center gap-x-8 gap-y-16 lg:grid-cols-2">
-              <div class="paragraph mx-auto w-full max-w-xl lg:mx-0">
-                <h1 class="prose text-4xl font-bold tracking-tight text-gray-900">Challenge for Charities 2024 Review</h1>
-                <p class="prose mt-6 text-lg leading-8 text-gray-600 mx-auto"><em class="">Dear Friends of Almost Home Wyoming,</em></p>
-                <br/>
-                <p>The <a class="decoration-purple-600 underline font-normal" href="https://www.landercommunityfoundation.org/challenge-for-charities-overview">
-                   Lander Community Foundation’s Challenge for Charities
-                </a>match was a huge success for 2024. We would like to extend a wide thank you to the Wyoming Community Foundation for putting on the event.</p>
-                <br/>
-                <p class="prose">
-                  <em class="italic">With gratitude, from the Almost Home Wyoming team</em>
-                </p>
-              </div>
-              <div class="mx-auto grid w-full max-w-xl grid-cols-1 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
-                <Image
-                    class="max-h-full w-full object-contain object-left"
-                    src={C4CCollage}
-                    alt="Challenge for Charities collage from check hand off event"
-                />
-              </div>
-            </div>
-          </div>
+      <div class="bg-white" id="c4c">
+          <BentoGrid></BentoGrid>
         </div>
     </div>
   </main>

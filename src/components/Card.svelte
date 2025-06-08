@@ -2,7 +2,7 @@
 import SecondaryBtn from "./global/SecondaryBtn.svelte";
 export let story = {}
 </script>
-  <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
+  <div class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
     {#if story.data.imgSrc}
       <img src={story.data.imgSrc} alt={"Almost Home Image"} class="absolute inset-0 -z-10 h-full w-full object-cover"/>
     {:else}
@@ -27,4 +27,4 @@ export let story = {}
     <h4 class="mt-5 line-clamp-3 text-sm leading-6 text-gray-300">
       {story.data.subTitle}
     </h4>
-  </article>
+  </div>

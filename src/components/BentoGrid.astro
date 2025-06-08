@@ -1,0 +1,50 @@
+---
+import C4CBlueLogo from "../assets/images/C4C-LCF-Blue-Logo.png";
+import SeedsOfHope from "../assets/images/Seeds-of-Hope.jpeg";
+import { Image } from 'astro:assets';
+---
+<div class="bg-gray-50 py-24 sm:py-32">
+  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+    <p class="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-gray-950 sm:text-5xl">Challenge for Charities 2025</p>
+    <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3">
+      <div class="relative lg:row-span-1">
+        <div class="absolute inset-px rounded-lg bg-white lg:rounded-l-4xl"></div>
+        <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
+          <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+            <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center"><em class="">Dear Friends of Almost Home Wyoming,</em></p>
+            <br/>
+            <p class="text-gray-600">The <a class="decoration-purple-600 underline font-normal" href="https://www.landercommunityfoundation.org/challenge-for-charities-overview">
+               Lander Community Foundation’s Challenge for Charities
+            </a>match was a huge success for 2024. We would like to extend a wide thank you to the Lander Community Foundation for putting on the event.</p>
+            <p class="text-gray-600">We are gearing up for the 2025 Challenge for Charities event. You will see us around town at coffee shops providing Seeds of Hope, come say hello!</p>
+            <br/>
+            <p class="prose text-gray-600">
+              <em class="italic">With gratitude, from the Almost Home Wyoming team</em>
+            </p>
+          </div>
+          <div class="">
+              <Image class="size-full object-cover object-top"
+                     src={C4CBlueLogo} alt="Challenge for charities and the Lander Community Foundation logos" />
+          </div>
+        </div>
+        <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 lg:rounded-l-4xl"></div>
+      </div>
+      <div class="relative lg:row-span-2 lg:col-span-2">
+        <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-4xl lg:rounded-r-4xl"></div>
+        <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
+          <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+            <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">Planting Seeds of Hope</p>
+            <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">Come see us around the lovely Lander coffee shops as we give out seeds of hope to our community</p>
+          </div>
+          <div class="relative min-h-120 max-h-160 w-full grow">
+              <div class="px-6 pt-6 pb-14">
+                <Image class="size-full object-cover object-top"
+                       src={SeedsOfHope} alt="Member of Almost Home Wyoming smiling at their booth to give out Seeds at the Lander Bake Shop" />
+              </div>
+          </div>
+        </div>
+        <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-b-4xl lg:rounded-r-4xl"></div>
+      </div>
+    </div>
+  </div>
+</div>
