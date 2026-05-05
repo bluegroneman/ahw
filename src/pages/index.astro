@@ -6,8 +6,9 @@ import SecondaryBtn from '../components/global/SecondaryBtn.svelte';
 import Card from '../components/Card.svelte';
 import Hero from '../components/Hero.svelte'
 import VideoCTA from "../components/VideoCTA.svelte";
-import BentoGrid from "../components/BentoGrid.astro";
+import BentoGrid from "../components/BentoGrid.svelte";
 import { Image } from 'astro:assets';
+import Banner from "../components/Banner.svelte";
 
 import HeartHands from "../assets/images/heart-hands-icon.svg";
 import C4CCollage from "../assets/images/2024-C4C-collage.jpeg";
@@ -15,8 +16,15 @@ import HeartHouse from "../assets/images/house-heart-icon.svg";
 import { getCollection } from 'astro:content';
 
 const stories = await getCollection('stories');
+
+const c4cContent = `
+  <p>Hey friends! Today starts the giving period for the Challenge 4 Charities match program! Please consider donating to help our homeless friends. It’s simple, just go to the <a href="https://lander.fcsuite.com/erp/donate/list" class="text-purple-600 underline">Lander Community Foundation website</a>, click on C4C donations, then scroll to Almost Home Wyoming.</p>
+  <p class="mt-4">You can also send a check to the LCF, PO Box 1131, Lander, WY, 82520. Please remember to make the check out to the Lander Community Foundation and put Almost Home Wyoming in the notes.</p>
+  <p class="mt-4 font-medium">Thank you for your continued support!</p>
+`;
 ---
 <Layout title="Almost Home Wyoming">
+	<Banner />
 	<main>
 	<div class="wrapper">
       <Hero
@@ -84,7 +92,7 @@ const stories = await getCollection('stories');
 
       <VideoCTA />
       <div class="bg-white">
-          <BentoGrid></BentoGrid>
+          <BentoGrid content={c4cContent} imageSrc="images/2024-C4C-collage.jpeg"></BentoGrid>
       </div>
     </div>
   </main>
