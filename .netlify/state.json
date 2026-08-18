@@ -1,0 +1,21 @@
+{
+	"dbConnectionString": "postgres://localhost:51249/postgres",
+	"geolocation": {
+		"data": {
+			"city": "Lander",
+			"country": {
+				"code": "US",
+				"name": "United States"
+			},
+			"subdivision": {
+				"code": "WY",
+				"name": "Wyoming"
+			},
+			"timezone": "America/Denver",
+			"latitude": 42.83,
+			"longitude": -108.7273,
+			"postalCode": "82520"
+		},
+		"timestamp": 1787058794421
+	}
+}
