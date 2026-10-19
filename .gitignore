@@ -25,4 +25,4 @@ pnpm-debug.log*
 ./netlify/build
 
 # Local Netlify folder
-./.netlify
+**/.netlify
