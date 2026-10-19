@@ -7,6 +7,22 @@
   let status = 'idle';
   let errorMessage = '';
   const totalSteps = 5;
+  const agencies = [
+    { name: 'agencyLIEAP', label: 'LIEAP' },
+    { name: 'agencySection8', label: 'Section 8' },
+    { name: 'agencyTANF', label: 'TANF' },
+    { name: 'agencyPOWER', label: 'POWER' },
+    { name: 'agencyWIC', label: 'WIC' },
+    { name: 'agencyFoodStamps', label: 'Food Stamp' },
+    { name: 'agencyJobServices', label: 'Job Services' },
+    { name: 'agencyCounselingServices', label: 'Counseling Services' },
+    { name: 'agencyWSIL', label: 'WSIL' },
+    { name: 'agencyMedicareMedicaid', label: 'Medicare/Medicaid' },
+    { name: 'agencyKidsCareTitle19', label: 'Kids Care/Title 19' },
+    { name: 'agencyHomelessShelter', label: 'Homeless Shelter' },
+    { name: 'agencyVOCRehab', label: 'VOC Rehab' },
+    { name: 'agencyCommodities', label: 'Commodities' }
+  ];
   const steps = [
     { number: 1, title: 'Personal Info' },
     { number: 2, title: 'Household & Needs' },
@@ -117,12 +133,12 @@
             <label>First Name * <input type="text" autocomplete="given-name" name="firstName" required /></label>
           </div>
 
-          <label>Physical Address * <input type="text" autocomplete="street-address" name="physicalAddress" required /></label>
+          <label>Physical Address <input type="text" autocomplete="street-address" name="physicalAddress" /></label>
           <label>Mailing Address (if different) <input type="text" name="mailingAddress" /></label>
 
           <div class="grid">
             <label>Date of Birth * <input type="date" autocomplete="bday" name="dob" required /></label>
-            <label>Phone Number * <input type="tel" autocomplete="tel" name="phone" required /></label>
+            <label>Phone Number <input type="tel" autocomplete="tel" name="phone" /></label>
           </div>
 
           <div class="grid">
@@ -323,22 +339,14 @@
       <!-- STEP 4: AGENCY ASSISTANCE HISTORY -->
         <fieldset data-step="4" hidden={enhanced && currentStep !== 4} disabled={status === 'submitting'}>
           <legend tabindex="-1">Step 4: Have you visited any of these agencies?</legend>
-          <div class="grid">
-            <label>LIEAP
-              <select name="agencyLIEAP"><option value="No">No</option><option value="Yes">Yes</option></select>
-            </label>
-            <label>Section 8
-              <select name="agencySection8"><option value="No">No</option><option value="Yes">Yes</option></select>
-            </label>
-            <label>TANF
-              <select name="agencyTANF"><option value="No">No</option><option value="Yes">Yes</option></select>
-            </label>
-            <label>Food Stamps / SNAP
-              <select name="agencyFoodStamps"><option value="No">No</option><option value="Yes">Yes</option></select>
-            </label>
-            <label>Homeless Shelter
-              <select name="agencyHomelessShelter"><option value="No">No</option><option value="Yes">Yes</option></select>
-            </label>
+          <p id="agencies-help" class="agency-help">Select all agencies you have visited. Checked means Yes; unchecked means No.</p>
+          <div class="agency-options" role="group" aria-label="Agencies visited" aria-describedby="agencies-help">
+            {#each agencies as agency}
+              <label class="agency-option">
+                <input type="checkbox" name={agency.name} value="Yes" />
+                <span>{agency.label}</span>
+              </label>
+            {/each}
           </div>
         </fieldset>
 
@@ -414,6 +422,11 @@
   label { display: flex; min-width: 0; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; font-size: 0.9rem; font-weight: 500; line-height: 1.5; }
   input, select, textarea { width: 100%; min-width: 0; padding: 0.7rem; border: 1px solid #9ca3af; border-radius: 0.375rem; background: white; color: #1f2937; font: inherit; }
   textarea { resize: vertical; }
+  .agency-help { margin-bottom: 1rem; }
+  .agency-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 0.5rem; padding: 1rem; border: 1px solid #9ca3af; border-radius: 0.5rem; background: #f9fafb; }
+  .agency-option { flex-direction: row; align-items: center; gap: 0.75rem; margin: 0; padding: 0.65rem; border-radius: 0.375rem; cursor: pointer; }
+  .agency-option:hover, .agency-option:has(input:checked) { background: #e4f5f5; }
+  .agency-option input { width: 1.25rem; height: 1.25rem; padding: 0; flex-shrink: 0; accent-color: #2c63bd; }
   input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible, legend:focus-visible { outline: 2px solid #3c78e0; outline-offset: 3px; }
   .upload-help { margin-bottom: 1rem; font-size: 0.9rem; }
   .upload-section { background: #f0fafa; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; }
