@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.svelte';
+import IntakeApplicationForm from '../components/IntakeApplicationForm.svelte';
+---
+
+<Layout title="New Client Application | Almost Home Wyoming">
+  <Hero
+    headline="New Client Application"
+    body="Take the next step toward stable housing."
+  />
+  <section aria-label="Client intake application" class="px-4 pb-8 sm:px-6 lg:px-8">
+    <div class="mx-auto mb-6 max-w-4xl">
+      <a href="/contact" class="font-semibold text-t-blue underline underline-offset-4 hover:text-slate-700">
+        &larr; Contact Almost Home Wyoming
+      </a>
+    </div>
+    <IntakeApplicationForm client:load />
+  </section>
+</Layout>

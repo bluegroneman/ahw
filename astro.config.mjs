@@ -14,7 +14,9 @@ import react from '@astrojs/react';
 export default defineConfig({
   site: 'https://almosthomewyoming.org',
   integrations: [mdx(), sitemap(), svelte(), react()],
-  adapter: netlify(),
+  // Local pages don't need Netlify's emulator, which starts a separate Deno server.
+  // Keep the adapter for production builds and Netlify's image CDN.
+  adapter: process.env.NODE_ENV === 'development' ? undefined : netlify(),
   image:{
     domains: ["pub-14b6e6c1e28d49cbb9491101304b9098.r2.dev", "*.r2.dev", "cloudflarestorage.com"]
   },

@@ -2,7 +2,7 @@
 	"dbConnectionString": "postgres://localhost:51249/postgres",
 	"geolocation": {
 		"data": {
-			"city": "Lander",
+			"city": "Riverton",
 			"country": {
 				"code": "US",
 				"name": "United States"
@@ -12,10 +12,10 @@
 				"name": "Wyoming"
 			},
 			"timezone": "America/Denver",
-			"latitude": 42.83,
-			"longitude": -108.7273,
-			"postalCode": "82520"
+			"latitude": 43.0125,
+			"longitude": -108.3844,
+			"postalCode": "82501"
 		},
-		"timestamp": 1787058794421
+		"timestamp": 1792422853969
 	}
 }

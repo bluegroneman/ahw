@@ -12,6 +12,14 @@ const ContactPage = await getEntry('pages', 'contact')
         headline={ContactPage.data.title}
         body={ContactPage.data.subTitle}
     ></Hero>
+    <section aria-labelledby="application-heading" class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl border border-teal-100 bg-teal-50 p-6 shadow-sm sm:p-8">
+        <p class="text-sm font-semibold uppercase tracking-wide text-teal-800">Apply for assistance</p>
+        <h2 id="application-heading" class="mt-2 text-2xl font-bold text-gray-900">New Client Application Intake Form</h2>
+        <p class="mt-3 leading-7 text-gray-600">Looking for housing support? Tell us about your household and needs through our online application. You can also include identification and income documents.</p>
+        <a href="/apply/" class="mt-5 inline-flex rounded-md bg-t-blue px-5 py-3 font-semibold text-white hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-t-blue">Start your application</a>
+      </div>
+    </section>
     <div class="bg-white max-w-fit mx-auto shadow overflow-hidden sm:rounded-lg mt-8">
       <div class="px-4 py-5 sm:px-6">
         <h3 class="text-lg leading-6 font-medium text-gray-900">
