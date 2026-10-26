@@ -156,8 +156,14 @@
       </ol>
     </div>
   {/if}
-
-    <form bind:this={form} name="almost-home-application" method="POST" action="/application-received/" data-netlify="true" netlify-honeypot="bot-field" on:submit={handleSubmit} novalidate={enhanced} enctype="multipart/form-data" aria-busy={status === 'submitting'}>
+    <form
+            bind:this={form}
+            name="almost-home-application"
+            method="POST"
+            action="https://almost-home-form-handler.bluedojo.workers.dev/submit"
+            novalidate={enhanced}
+            enctype="multipart/form-data"
+            aria-busy={status === 'submitting'}>
       <input type="hidden" name="form-name" value="almost-home-application" />
 
       <p class="hidden-field">
