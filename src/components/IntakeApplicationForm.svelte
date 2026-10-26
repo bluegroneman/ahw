@@ -160,7 +160,7 @@
             bind:this={form}
             name="almost-home-application"
             method="POST"
-            action="https://almost-home-form-handler.bluedojo.workers.dev/submit"
+            action="https://api.almosthomewyoming.org/submit"
             novalidate={enhanced}
             enctype="multipart/form-data"
             aria-busy={status === 'submitting'}>
