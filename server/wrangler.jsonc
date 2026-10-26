@@ -8,5 +8,14 @@
       "name": "EMAIL",
       "destination_address": "bluegroneman10@gmail.com"
     }
-  ]
+  ],
+  "observability": {
+    "logs": {
+      "enabled": false,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": false
+    }
+  }
 }
