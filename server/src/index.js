@@ -131,21 +131,15 @@ function displayValue(value) {
   return value;
 }
 
-/** Convert a submitted file into the base64 attachment format Email Service accepts. */
+/** Convert a submitted file into the attachment format Email Service accepts. */
 async function fileToAttachment(file) {
   if (!file || typeof file.arrayBuffer !== "function" || !file.name || file.size === 0) {
     return null;
   }
 
-  const bytes = new Uint8Array(await file.arrayBuffer());
-  let binary = "";
-  for (let offset = 0; offset < bytes.length; offset += 0x8000) {
-    binary += String.fromCharCode(...bytes.subarray(offset, offset + 0x8000));
-  }
-
   return {
     filename: file.name,
-    content: btoa(binary),
+    content: await file.arrayBuffer(),
     type: file.type || "application/octet-stream",
     disposition: "attachment",
   };
@@ -267,7 +261,7 @@ export default {
     const attachments = proofFiles.filter(Boolean);
 
     // Build the email content.
-    const subject = `New contact form submission from ${data.firstName || ""} ${data.lastName || ""}`.trim();
+    const subject = `New Client Intake form submission from ${data.firstName || ""} ${data.lastName || ""}`.trim();
     const text = buildPlainText(data);
     const html = buildHtml(data);
 
