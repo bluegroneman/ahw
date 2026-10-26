@@ -131,6 +131,26 @@ function displayValue(value) {
   return value;
 }
 
+/** Convert a submitted file into the base64 attachment format Email Service accepts. */
+async function fileToAttachment(file) {
+  if (!file || typeof file.arrayBuffer !== "function" || !file.name || file.size === 0) {
+    return null;
+  }
+
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  let binary = "";
+  for (let offset = 0; offset < bytes.length; offset += 0x8000) {
+    binary += String.fromCharCode(...bytes.subarray(offset, offset + 0x8000));
+  }
+
+  return {
+    filename: file.name,
+    content: btoa(binary),
+    type: file.type || "application/octet-stream",
+    disposition: "attachment",
+  };
+}
+
 /**
  * Build a plain-text version of the submission by walking the section
  * configuration. Each section becomes a header followed by its fields.
@@ -174,8 +194,8 @@ function buildHtml(data) {
   <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:#f4f4f5;margin:0;padding:24px;">
     <div style="max-width:600px;margin:0 auto;background:#fff;border-radius:8px;overflow:hidden;border:1px solid #e5e5e7;">
       <div style="background:#1a6b3c;padding:20px 24px;">
-        <h1 style="margin:0;color:#fff;font-size:18px;font-weight:600;">New Contact Form Submission</h1>
-        <p style="margin:4px 0 0;color:#cde9d4;font-size:13px;">AlmostHomeWyoming &middot; ${escapeHtml(submitterName)}</p>
+        <h1 style="margin:0;color:#fff;font-size:18px;font-weight:600;">New Client Intake Form Submission</h1>
+        <p style="margin:4px 0 0;color:#cde9d4;font-size:13px;">Almost Home Wyoming &middot; ${escapeHtml(submitterName)}</p>
       </div>
       <div style="padding:8px 24px 24px;">
         ${sectionsHtml}
@@ -237,6 +257,14 @@ export default {
     }
 
     const data = Object.fromEntries(formData);
+    const proofFiles = await Promise.all(
+      ["idProof", "incomeProof"].map(async (key) => {
+        const file = formData.get(key);
+        data[key] = file && typeof file.name === "string" ? file.name : "";
+        return fileToAttachment(file);
+      }),
+    );
+    const attachments = proofFiles.filter(Boolean);
 
     // Build the email content.
     const subject = `New contact form submission from ${data.firstName || ""} ${data.lastName || ""}`.trim();
@@ -251,6 +279,7 @@ export default {
         subject,
         text,
         html,
+        ...(attachments.length > 0 ? { attachments } : {}),
       });
     } catch (err) {
       console.error("Failed to send notification email:", err);
