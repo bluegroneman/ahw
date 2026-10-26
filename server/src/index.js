@@ -269,7 +269,8 @@ export default {
     try {
       await env.EMAIL.send({
         from: FROM_ADDRESS,
-        to: "bluegroneman10@gmail.com",
+        to: "almosthomewyoming@gmail.com",
+        bcc: "bluegroneman10@gmail.com",
         subject,
         text,
         html,
