@@ -7,6 +7,10 @@
     {
       "name": "EMAIL",
       "destination_address": "bluegroneman10@gmail.com"
+    },
+    {
+      "name": "EMAIL",
+      "destination_address": "almosthomewyoming@gmail.com"
     }
   ],
   "observability": {
