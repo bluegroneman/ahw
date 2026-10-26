@@ -20,6 +20,7 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+        <slot name="head" />
         <GoogleAnalytics id="G-P8Q7Z18VEB" />
 	</head>
 	<body>

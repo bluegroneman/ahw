@@ -12,38 +12,43 @@ const ContactPage = await getEntry('pages', 'contact')
         headline={ContactPage.data.title}
         body={ContactPage.data.subTitle}
     ></Hero>
-    <div class="bg-white max-w-fit mx-auto shadow overflow-hidden sm:rounded-lg mt-8">
-      <div class="px-4 py-5 sm:px-6">
-        <h3 class="text-lg leading-6 font-medium text-gray-900">
-            {ContactPage.data.title}
-        </h3>
-        <p class="mt-1 max-w-2xl text-sm text-gray-500">
-          Phone, Email, etc..
-        </p>
+    <section aria-labelledby="application-heading" class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-6 lg:grid-cols-5 lg:items-stretch">
+        <div class="flex flex-col rounded-2xl border border-teal-100 bg-teal-50 p-6 shadow-sm sm:p-8 lg:col-span-3">
+          <p class="text-sm font-semibold uppercase tracking-wide text-teal-800">Apply for assistance</p>
+          <h2 id="application-heading" class="mt-2 text-2xl font-bold text-gray-900">Need housing support?</h2>
+          <p class="mt-3 flex-1 leading-7 text-gray-600">Use our online application to tell us about your household and needs. You can attach identification and income documents, or skip uploads and send those later.</p>
+          <p class="mt-3 text-sm text-gray-600">Most people finish in about 10 minutes. If you would rather apply by phone, call us.</p>
+          <a href="/apply/" class="mt-5 inline-flex w-fit rounded-md bg-t-blue px-5 py-3 font-semibold text-white hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-t-blue">Start your application</a>
+        </div>
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8 lg:col-span-2">
+          <h3 class="text-lg font-medium text-gray-900">
+              {ContactPage.data.title}
+          </h3>
+          <p class="mt-1 text-sm text-gray-500">
+            Questions, or need help filling out the form?
+          </p>
+          <dl class="mt-6 grid grid-cols-1 gap-y-6">
+            <div>
+              <dt class="text-sm font-medium text-gray-500">Phone</dt>
+              <dd class="mt-1 text-sm text-gray-900">
+                <a class="font-semibold text-t-blue underline underline-offset-2" href="tel:+13074383332">(307) 438-3332</a>
+              </dd>
+            </div>
+            <div>
+              <dt class="text-sm font-medium text-gray-500">Email</dt>
+              <dd class="mt-1 text-sm text-gray-900">
+                <a class="break-all text-t-blue underline underline-offset-2" href="mailto:almosthomewyoming@gmail.com">almosthomewyoming@gmail.com</a>
+              </dd>
+            </div>
+            <div>
+              <dt class="text-sm font-medium text-gray-500">Mailing Address</dt>
+              <dd class="mt-1 text-sm text-gray-900">
+                P.O. Box 44, Lander, WY 82520
+              </dd>
+            </div>
+          </dl>
+        </div>
       </div>
-      <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
-        <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
-          <div class="sm:col-span-1">
-            <dt class="text-sm font-medium text-gray-500">Mailing Address</dt>
-            <dd class="mt-1 text-sm text-gray-900">
-              P.O. Box 44, Lander, WY,82520
-            </dd>
-          </div>
-          <div class="sm:col-span-1">
-            <dt class="text-sm font-medium text-gray-500">
-              Phone Number
-            </dt>
-            <dd class="mt-1 text-sm text-gray-900">
-            (307) 438-3332
-            </dd>
-          </div>
-          <div class="sm:col-span-1">
-            <dt class="text-sm font-medium text-gray-500">Email</dt>
-            <dd class="mt-1 text-sm text-gray-900">
-              almosthomewyoming@gmail.com
-            </dd>
-          </div>
-        </dl>
-      </div>
-    </div>
+    </section>
 </Layout>
