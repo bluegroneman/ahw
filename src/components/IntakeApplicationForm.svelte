@@ -196,6 +196,9 @@
               <label>Phone number
                 <input type="tel" autocomplete="tel" name="phone" inputmode="tel" aria-describedby="phone-hint" />
               </label>
+              <label>Email
+                <input type="email" autocomplete="email" name="email" inputmode="email" required />
+              </label>
               <label>Physical address
                 <input type="text" autocomplete="street-address" name="physicalAddress" />
               </label>

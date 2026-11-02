@@ -21,6 +21,7 @@ const SECTIONS = [
       { key: "lastName", label: "Last Name" },
       { key: "dob", label: "Date of Birth" },
       { key: "phone", label: "Phone" },
+      { key: "email", label: "Email" },
       { key: "physicalAddress", label: "Physical Address" },
       { key: "mailingAddress", label: "Mailing Address" },
       { key: "emergencyContact", label: "Emergency Contact" },
